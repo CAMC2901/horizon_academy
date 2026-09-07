@@ -13,9 +13,6 @@ dist/
 # Database & Cache
 chroma_db/
 .chroma/
-*.db
-backend/*.db
-
 
 # IDE / OS
 .DS_Store

@@ -50,6 +50,7 @@ class EscalateRequest(BaseModel):
     consulta_id: Optional[int] = None
 
 @app.post("/api/chat")
+@app.post("/chat")
 async def chat_endpoint(req: ChatRequest):
     if not req.message:
         raise HTTPException(status_code=400, detail="Message is required")
@@ -58,6 +59,7 @@ async def chat_endpoint(req: ChatRequest):
     return {"reply": reply}
 
 @app.post("/api/inscriptions")
+@app.post("/inscriptions")
 async def inscription_endpoint(req: InscriptionRequest):
     if not req.nombre or not req.correo or not req.telefono or not req.curso:
         raise HTTPException(status_code=400, detail="Nombre, correo, teléfono y curso son requeridos.")
@@ -82,6 +84,7 @@ async def inscription_endpoint(req: InscriptionRequest):
         raise HTTPException(status_code=500, detail="No se pudo guardar la inscripción en la base de datos.")
 
 @app.get("/api/inscriptions")
+@app.get("/inscriptions")
 async def get_inscriptions_endpoint():
     inscriptions = get_all_inscriptions()
     return [
@@ -101,6 +104,7 @@ async def get_inscriptions_endpoint():
     ]
 
 @app.post("/api/escalate")
+@app.post("/escalate")
 async def escalate_endpoint(req: EscalateRequest):
     if not req.nombre or not req.correo:
         raise HTTPException(status_code=400, detail="Nombre y correo son requeridos")
@@ -114,15 +118,18 @@ async def escalate_endpoint(req: EscalateRequest):
     return {"status": "success", "escalate_id": escalate_id}
 
 @app.get("/api/metrics")
+@app.get("/metrics")
 async def metrics_endpoint():
     return metrics_service.get_metrics()
 
 @app.post("/api/metrics/reset")
+@app.post("/metrics/reset")
 async def reset_metrics_endpoint():
     metrics_service.reset()
     return {"status": "success", "message": "Metrics reset successfully"}
 
 @app.get("/api/config")
+@app.get("/config")
 async def config_endpoint():
     return {
         "escalation_form_url": os.getenv("ESCALATION_FORM_URL", "https://docs.google.com/forms/d/e/1FAIpQLSdAyhhqdotfhe9bwKaCC0faNaArmJLSjQOmuD9feRl0pEd95A/viewform")
