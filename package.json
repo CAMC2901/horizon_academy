@@ -1,0 +1,13 @@
+{
+  "name": "language-academy-ai-assistant",
+  "version": "1.0.0",
+  "description": "AI Assistant for Language Academy",
+  "type": "module",
+  "scripts": {
+    "dev": "vite frontend",
+    "build": "vite build frontend --outDir ../dist"
+  },
+  "devDependencies": {
+    "vite": "^8.2.2"
+  }
+}

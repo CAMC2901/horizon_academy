@@ -1,0 +1,23 @@
+# Environment variables (SECRETS - DO NOT COMMIT)
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node / Frontend
+node_modules/
+dist/
+
+# Database & Cache
+chroma_db/
+.chroma/
+*.db
+backend/*.db
+
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/

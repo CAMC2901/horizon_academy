@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Academy</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Academy Landing Page -->
+  <div id="landing-page" class="academy-page">
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">🌍</span>
+          <span class="logo-text">Horizon Academy</span>
+        </div>
+        <div class="nav-links">
+          <a href="#">Programas</a>
+          <a href="#">Horarios</a>
+          <a href="#">Precios</a>
+          <a href="#" id="nav-inscription-link" class="nav-link-highlight">Inscripciones</a>
+        </div>
+        <div class="nav-actions">
+          <button id="open-inscription-btn" class="nav-btn-primary">Inscribirse</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Domina un nuevo idioma, abre un nuevo mundo.</h1>
+          <p class="hero-subtitle">Inglés, Francés, Alemán e Italiano. Aprende con metodologías dinámicas, clases en vivo y profesores expertos diseñados para tu éxito profesional.</p>
+          <div class="hero-buttons">
+            <button id="hero-inscription-btn" class="btn-primary">Inscribirme Ahora</button>
+            <button id="start-btn" class="btn-secondary glow-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Pregúntale a nuestra IA
+            </button>
+          </div>
+        </div>
+        <div class="hero-image-placeholder">
+          <!-- Ilustración CSS simple -->
+          <div class="illustration-circle">
+            <div class="illustration-globe"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Material Digital Incluido</h3>
+          <p>Acceso a plataforma interactiva 24/7 sin costo adicional.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏰</div>
+          <h3>Flexibilidad Horaria</h3>
+          <p>Franjas en la mañana, tarde, noche y planes sabatinos intensivos.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Certificación MCER</h3>
+          <p>Programas 100% alineados al Marco Común Europeo.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Chat App Container (Hidden initially) -->
+  <div id="app-container" class="app-container hidden">
+    <header class="header">
+      <div class="header-nav">
+        <button id="back-btn" class="back-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Volver a la academia
+        </button>
+      </div>
+      <h1>Asistente Inteligente</h1>
+      <p>¡Hola! Soy la IA de Horizon. Pregúntame sobre precios, horarios o niveles.</p>
+    </header>
+
+    <div class="main-content">
+      <div class="chat-wrapper">
+        <div class="chat-container glass-panel">
+          <div id="chat-messages" class="chat-messages">
+            <div class="message assistant">
+              <div class="bubble">¡Hola! Soy Horizon, tu asistente virtual. ¿Cómo puedo ayudarte hoy?</div>
+            </div>
+          </div>
+          
+          <form id="chat-form" class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." autocomplete="off" required />
+            <button type="submit" id="send-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="metrics-panel glass-panel">
+        <h3>Métricas en Vivo</h3>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="label">Consultas</span>
+            <span id="metric-queries" class="value">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="label">Aciertos Caché</span>
+            <span id="metric-cache" class="value">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="label">Escalamientos</span>
+            <span id="metric-escalations" class="value">0%</span>
+          </div>
+          <div class="metric-card">
+            <span class="label">Costo Est.</span>
+            <span id="metric-cost" class="value">$0.00</span>
+          </div>
+        </div>
+        <a id="escalation-btn" href="#" target="_blank" class="btn-secondary hidden" style="margin-top: 15px; width: 100%; text-align: center; display: block; text-decoration: none;">
+          👤 Hablar con Asesor Humano
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Inscripción de Estudiantes -->
+  <div id="inscription-modal" class="modal-backdrop hidden">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h2>Formulario de Inscripción Horizon Academy</h2>
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+      </div>
+      <p class="modal-subtitle">Diligencia tus datos para registrar tu postulación a nuestros cursos de idiomas.</p>
+      
+      <form id="inscription-form" class="inscription-form">
+        <div class="form-group">
+          <label for="ins-nombre">Nombre Completo *</label>
+          <input type="text" id="ins-nombre" placeholder="Ej. Carlos Mendoza" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ins-correo">Correo Electrónico *</label>
+            <input type="email" id="ins-correo" placeholder="correo@ejemplo.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="ins-telefono">Teléfono / WhatsApp *</label>
+            <input type="tel" id="ins-telefono" placeholder="+57 300 123 4567" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ins-curso">Curso de Interés *</label>
+            <select id="ins-curso" required>
+              <option value="Inglés">Inglés</option>
+              <option value="Francés">Francés</option>
+              <option value="Alemán">Alemán</option>
+              <option value="Italiano">Italiano</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ins-nivel">Nivel MCER Deseado</label>
+            <select id="ins-nivel">
+              <option value="A1 (Principiante)">A1 (Principiante)</option>
+              <option value="A2 (Básico)">A2 (Básico)</option>
+              <option value="B1 (Intermedio)">B1 (Intermedio)</option>
+              <option value="B2 (Intermedio Alto)">B2 (Intermedio Alto)</option>
+              <option value="C1 (Avanzado)">C1 (Avanzado)</option>
+              <option value="Por Clasificar (Test Gratis)">Por Clasificar (Test Gratis)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ins-modalidad">Modalidad</label>
+            <select id="ins-modalidad">
+              <option value="Virtual en Vivo">Virtual en Vivo (Zoom/Meet)</option>
+              <option value="Presencial (Bogotá)">Presencial (Sede Bogotá)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ins-franja">Franja Horaria Preferida</label>
+            <select id="ins-franja">
+              <option value="Mañana (6:00 AM - 8:00 AM)">Mañana (6:00 AM - 8:00 AM)</option>
+              <option value="Tarde (2:00 PM - 4:00 PM)">Tarde (2:00 PM - 4:00 PM)</option>
+              <option value="Noche (6:00 PM - 8:00 PM)">Noche (6:00 PM - 8:00 PM)</option>
+              <option value="Noche Tardía (8:00 PM - 10:00 PM)">Noche Tardía (8:00 PM - 10:00 PM)</option>
+              <option value="Sabatino (Sábados 8:00 AM - 1:00 PM)">Sabatino (Sábados 8:00 AM - 1:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit-inscription">
+          ✅ Confirmar Inscripción
+        </button>
+      </form>
+      <div id="inscription-alert" class="inscription-alert hidden"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

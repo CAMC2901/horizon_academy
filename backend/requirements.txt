@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+langchain
+langchain-google-genai
+langchain-openai
+langchain-groq
+langchain-community
+langchain-ollama
+langchain-huggingface
+sentence-transformers
+chromadb
+python-dotenv
+pydantic
+sqlalchemy
+
