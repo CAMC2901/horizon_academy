@@ -6,7 +6,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "backend" / "horizon_academy.db"
+IS_VERCEL = os.getenv("VERCEL") == "1"
+if IS_VERCEL:
+    DB_PATH = Path("/tmp/horizon_academy.db")
+else:
+    DB_PATH = BASE_DIR / "backend" / "horizon_academy.db"
+
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})

@@ -147,7 +147,10 @@ class ChatEngine:
         split_docs = splitter.split_documents(all_docs)
         print(f"Created {len(split_docs)} total chunks.")
 
-        chroma_dir = str(BASE_DIR / "chroma_db")
+        if os.getenv("VERCEL") == "1":
+            chroma_dir = "/tmp/chroma_db"
+        else:
+            chroma_dir = str(BASE_DIR / "chroma_db")
 
         try:
             embeddings = self._get_embeddings()
